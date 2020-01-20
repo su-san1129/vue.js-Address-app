@@ -1,4 +1,11 @@
 # sample-vue-application
+開発環境：
+- node v12.13.1
+- @vue/cli 4.1.1
+
+vue cliやvuexを使用してアドレス帳を作成し、vuexのストア管理やfirebase、フロントフレームワークを体系的に学ぶ。
+
+使用ライブラリ：　vuex, vuetify
 
 ## Project setup
 ```
