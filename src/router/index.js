@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router' // vueの本体と、Vueのライブラリをインポート
 import Home from '../views/Home.vue'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter)// useメソッドにrouterを渡して使用できるようにしている。
 
 const routes = [
   {
@@ -21,7 +21,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'history',  // pathの持ち方。historyは"/"など
   base: process.env.BASE_URL,
   routes
 })
