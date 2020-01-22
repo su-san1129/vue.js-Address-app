@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router"; // vueの本体と、Vueのライブラリをインポート
 import Home from "../views/Home.vue";
 import Addresses from "../views/Addresses.vue";
+import AddressForm from "../views/AddressForm.vue";
 
 Vue.use(VueRouter); // useメソッドにrouterを渡して使用できるようにしている。
 
@@ -12,9 +13,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/addresses',
-    name: 'addresses',
+    path: "/addresses",
+    name: "addresses",
     component: Addresses
+  },
+  {
+    path: "/address_edit",
+    name: "address_edit",
+    component: AddressForm
   },
   {
     path: "/about",

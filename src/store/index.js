@@ -1,22 +1,27 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    drawer: false
+    drawer: false,
+    addresses: []
   },
   mutations: {
     toggleSideMenu(state) {
-      state.drawer = !state.drawer
+      state.drawer = !state.drawer;
+    },
+    addAddress(state, address) {
+      state.addresses.push(address);
     }
   },
   actions: {
     toggleSideMenu({ commit }) {
-      commit('toggleSideMenu')
+      commit("toggleSideMenu");
+    },
+    addAddress({ commit }, address) {
+      commit("addAddress", address);
     }
-  },
-  modules: {
   }
-})
+});

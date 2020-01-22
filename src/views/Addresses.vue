@@ -1,32 +1,46 @@
 <template>
-  <v-navigation-drawer v-model="$store.state.drawer" absolute temporary>
-    <v-list>
-      <v-list-item>
-        <v-list-item-avatar>
-          <img src="#" />
-        </v-list-item-avatar>
-        <v-list-item-content>
-          <v-list-item-title>名前</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-divider></v-divider>
-      <v-list-item v-for="(item, index) in items" :key="index">
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
+  <v-container text-xs-center justify-center>
+    <v-layout row wrap>
+      <v-flex xs12>
+        <h1>連絡先一覧</h1>
+      </v-flex>
+      <v-flex xs12 mt-5 mr-5 text-right>
+        <router-link :to="{ name: 'address_edit' }">
+          <v-btn color="info">
+            連絡先
+          </v-btn>
+        </router-link>
+      </v-flex>
+      <span>{{$data}}</span>
+
+      <v-flex xs12 mt-5 justify-center>
+        <v-data-table :headers="headers" :items="addresses">
+          <template v-slot:items="props">
+            <td class="text-xs-left">{{ props.item.name }}</td>
+            <td class="text-xs-left">{{ props.item.tel }}</td>
+            <td class="text-xs-left">{{ props.item.email }}</td>
+            <td class="text-xs-left">{{ props.item.address }}</td>
+          </template>
+        </v-data-table>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
 export default {
+  created () {
+    this.addresses = this.$store.state.addresses
+  },
   data() {
     return {
-      items: [{ title: "連絡先一覧", icon: "mdi-menu" }]
+      headers: [
+        { text: "名前", value: "name" },
+        { text: "電話番号", value: "tel" },
+        { text: "メールアドレス", value: "email" },
+        { text: "住所", value: "address" }
+      ],
+      addresses: []
     };
   }
 };

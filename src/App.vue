@@ -5,11 +5,18 @@
       <v-toolbar-title>マイアドレス帳</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
+
+    <Sidenav />
+
     <v-content>
-      <Sidenav />
+      <v-container fluid fill-height align-start>
+        <!-- ここからrouter view -->
+        <router-view />
+      </v-container>
     </v-content>
   </v-app>
 </template>
+
 <script>
 import Sidenav from "./components/Sidenav";
 import { mapActions } from "vuex";
